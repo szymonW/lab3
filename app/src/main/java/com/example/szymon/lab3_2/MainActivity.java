@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 
 import com.example.szymon.lab3_2.domain.GetRecipes;
+import com.example.szymon.lab3_2.domain.RecipeView;
 import com.example.szymon.lab3_2.presentation.RecipePresenter;
 
 
@@ -17,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         final RecipePresenter recipePresenter = new RecipePresenter();
+        recipePresenter.onAttach(recipePresenter.recipeView); //??
         final CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        recipePresenter.onAttach(recipePresenter);
         final CheckBox vege = (CheckBox) findViewById(R.id.checkBox);
 
         Button przycisk = (Button) findViewById(R.id.button);
@@ -28,8 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 new Button.OnClickListener() {
                     public void onClick(View view) {
                         TextView wyswietl = (TextView) findViewById(R.id.textView);
-//                        recipePresenter.getRecipes.getRecipes(vege.isChecked());
-                        recipePresenter.showRecipes(new GetRecipes().getRecipes(vege.isChecked()));
+                        recipePresenter.showRecipes(vege.isChecked());
                         String string_recepie = recipePresenter.string_recepie;
                         wyswietl.setText(string_recepie);
                     }
