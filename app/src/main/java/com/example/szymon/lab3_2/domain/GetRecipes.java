@@ -3,26 +3,28 @@ package com.example.szymon.lab3_2.domain;
 import com.example.szymon.lab3_2.entity.Recipe;
 import com.example.szymon.lab3_2.repository.RecipeRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class GetRecipes {
     RecipeRepository reciperepository = new RecipeRepository();
-    public Recipe[] getRecipes(boolean isWithMeat){
-        Recipe[] Lista = new Recipe[reciperepository.getList().length];
+    public List<Recipe> getRecipes(boolean isWithMeat){
+        List<Recipe> Lista = new ArrayList<>(6);
         if (isWithMeat == false){
-            Lista = reciperepository.getList();
-            return Lista;
+            return reciperepository.getList();
         }else{
             int j=0;
-            for (int i = 0; i < reciperepository.getList().length; i++) {
-                if (reciperepository.getList()[i].typ_dania == false){
-                    Lista[j++]=reciperepository.getList()[i];
+            for (int i = 0; i < reciperepository.getList().size(); i++) {
+                if (reciperepository.getList().get(i).typ_dania == false){
+                    Lista.add(reciperepository.getList().get(i));
                 }
             }
-            Recipe[] Lista2 = new Recipe[j];
-            for (int i=0;i<j;i++){
-                Lista2[i]=Lista[i];
-            }
-            return Lista2;
+//            List<Recipe> Lista2 =  new ArrayList<>();
+//            for (int i=0;i<j;i++){
+//                Lista2.add(Lista.get(i));
+//            }
+            return Lista;
         }
     }
 

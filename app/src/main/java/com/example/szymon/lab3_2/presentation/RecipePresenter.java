@@ -2,7 +2,6 @@ package com.example.szymon.lab3_2.presentation;
 
 import com.example.szymon.lab3_2.domain.GetRecipes;
 import com.example.szymon.lab3_2.domain.RecipeView;
-import com.example.szymon.lab3_2.entity.Recipe;
 
 public class RecipePresenter implements RecipeView {
     public RecipeView recipeView;
@@ -13,9 +12,9 @@ public class RecipePresenter implements RecipeView {
     public void showRecipes(boolean isWithMeat){
 
         String string_recepie = new String();
-        for (int i = 0; i < getRecipes.getRecipes(isWithMeat).length; i++){
-            String name =  getRecipes.getRecipes(isWithMeat)[i].nazwa;
-            String menu =  getRecipes.getRecipes(isWithMeat)[i].opis;
+        for (int i = 0; i < getRecipes.getRecipes(isWithMeat).size(); i++){
+            String name =  getRecipes.getRecipes(isWithMeat).get(i).nazwa;
+            String menu =  getRecipes.getRecipes(isWithMeat).get(i).opis;
             string_recepie += name + " \t\t\t- \t\t\t" + menu + "\n";
         }
         this.string_recepie = string_recepie;

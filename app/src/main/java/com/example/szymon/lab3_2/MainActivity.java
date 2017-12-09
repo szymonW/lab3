@@ -8,8 +8,6 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 
 
-import com.example.szymon.lab3_2.domain.GetRecipes;
-import com.example.szymon.lab3_2.domain.RecipeView;
 import com.example.szymon.lab3_2.presentation.RecipePresenter;
 
 
