@@ -14,7 +14,7 @@ public class RecipeRepository {
     private Recipe wege2= new Recipe("Kebab wege2", "Bulka, ser, pomidor, sos BBQ", false);
     private Recipe wege3= new Recipe("Kebab wege3", "Bulka, salatka, sos ostry", false);
 
-    List<Recipe> recipes = new ArrayList<>();
+    List<Recipe> recipes = new ArrayList<>(6);
 
     public List<Recipe> getList(){
         this.recipes.add(miesny1);

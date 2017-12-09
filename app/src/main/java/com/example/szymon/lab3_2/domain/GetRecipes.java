@@ -10,12 +10,12 @@ import java.util.List;
 public class GetRecipes {
     RecipeRepository reciperepository = new RecipeRepository();
     public List<Recipe> getRecipes(boolean isWithMeat){
-        List<Recipe> Lista = new ArrayList<>(6);
+        List<Recipe> Lista = new ArrayList<>();
         if (isWithMeat == false){
             return reciperepository.getList();
         }else{
             int j=0;
-            for (int i = 0; i < reciperepository.getList().size(); i++) {
+            for (int i = 0; i < 6; i++) {
                 if (reciperepository.getList().get(i).typ_dania == false){
                     Lista.add(reciperepository.getList().get(i));
                 }
